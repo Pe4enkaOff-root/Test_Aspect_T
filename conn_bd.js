@@ -17,18 +17,23 @@ connection.connect(function (err) {
 
 function quer(table, str_find) {
     //table1 меняется на запрошеннную таблицу !!!!!
-    connection.query("SELECT * FROM " + table + " WHERE id >= 1;", function (err, results, fields) {
+    connection.query("SELECT * FROM " + table + " WHERE name = '" + str_find + "' || description = '" + str_find + "';" , function (err, results, fields) {
         if (err) {
             console.error("Error: " + err);
         } else {
             console.log(results);
-            for(var el in results){
-                if (results[el] == str_find){
-                    console.log(results[el]);
-                }
+            let res = new Object();
+            res.data = new Object();
+            for(i = 0; i = results.length && i<20; i++){
+                res.data += results[i];
             }
-            
-        }
+            for(el in results){
+                res.count += results[el];
+            }
+            console.log(res.count);
+            console.log(res.data);
+            }
+        
     });
 }
 
