@@ -53,7 +53,7 @@ async function sqlReader(table, str_find) {
                 
             }
             if (dataLenght = countLenght || dataLenght < countLenght){
-                msg = 'В результате '+ dataLenght + ' записей из '+ countLenght;  //
+                msg = 'В результате '+ dataLenght + ' Записей из '+ countLenght;  //
                 console.log(msg);
             }
         }
