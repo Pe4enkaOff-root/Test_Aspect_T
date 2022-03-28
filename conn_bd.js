@@ -19,6 +19,7 @@ var msg;    //msg
 
 async function sqlReader(table, str_find) {
     const conn = mysql.createConnection(connection); //connecting to db
+    
     conn.query("SELECT * FROM `" + table + "`", (err, result) => { //sql query
         if (err) {
             console.error(err); //checking for err
@@ -45,17 +46,17 @@ async function sqlReader(table, str_find) {
             res.data.sort(); //Array sort
 
             dataLenght = res.data.length;   //lenght res.data
-            countLenght = res.data.length;  //lenght res.count
+            countLenght = res.count.length;  //lenght res.count
 
             if (dataLenght == 0) {  
                 msg = 'Записи не найдены';  //validation no records found
                 console.log(msg);
-                
             }
-            if (dataLenght = countLenght || dataLenght < countLenght){
+            else if (dataLenght = countLenght || dataLenght < countLenght){
                 msg = 'В результате '+ dataLenght + ' записей из '+ countLenght;  //
                 console.log(msg);
             }
+            
         }
         
     });
