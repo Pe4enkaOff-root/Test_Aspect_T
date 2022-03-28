@@ -19,7 +19,7 @@ var msg; //msg
 
 async function sqlReader(table, str_find) {
     if (table == '' || str_find == '') {
-        console.error('sqlReader() error: The values thatare passed cannot be empty')    
+        console.error('sqlReader() error: The values thatare passed cannot be empty');    
     }else{
 
         const conn = mysql.createConnection(connection); //connecting to db
@@ -56,7 +56,7 @@ async function sqlReader(table, str_find) {
                 if (dataLenght == 0) {
                     msg = 'Записи не найдены'; //validation no records found
                     console.log(msg);
-                } else if (dataLenght = countLenght || dataLenght < countLenght) {
+                } else if (dataLenght == countLenght || dataLenght < countLenght) {
                     msg = 'В результате ' + dataLenght + ' записей из ' + countLenght; //
                     console.log(msg);
                 }
